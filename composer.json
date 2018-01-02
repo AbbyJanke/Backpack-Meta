@@ -1,0 +1,32 @@
+{
+    "name": "backpack/meta",
+    "description": "Meta Options for Backpack a Laravel Admin Interface",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abby",
+            "email": "me@abbyjanke.com",
+            "homepage": "http://www.abbyjanke.com",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Cristian Tabacitu",
+            "email": "hello@tabacitu.ro",
+            "homepage": "http://www.tabacitu.ro",
+            "role": "Chief Architect"
+        }
+    ],
+    "homepage": "https://github.com/AbbyJanke/Backpack-Meta",
+    "minimum-stability": "dev",
+    "require": {
+      "backpack/crud": "^3.3",
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "Backpack\\Meta\\MetaServiceProvider"
+          ]
+      }
+    },
+}
