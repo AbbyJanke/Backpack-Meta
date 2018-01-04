@@ -29,7 +29,7 @@ use Backpack\Meta\PanelTraits\Meta as MetaTrait; <!-- This One
 
 class PageCrudController extends CrudController
 {
-    use PageTemplates;
+    use MetaTrait; <!-- This one too
 ```
 
 6. Use the following line within your `setup()` function.
@@ -53,7 +53,6 @@ php artisan migrate
 ## Using with your CRUD
 
 *Documentation for this is coming shortly*
-
 
 ## Security
 
