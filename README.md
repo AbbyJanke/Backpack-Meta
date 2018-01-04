@@ -25,18 +25,18 @@ use App\PageTemplates;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PageManager\app\Http\Requests\PageRequest as StoreRequest;
 use Backpack\PageManager\app\Http\Requests\PageRequest as UpdateRequest;
-use Backpack\Meta\PanelTraits\Meta as MetaTrait; <!-- This One
+use Backpack\Meta\PanelTraits\Meta as MetaTrait; // <!-------------- This One
 
 class PageCrudController extends CrudController
 {
-    use MetaTrait; <!-- This one too
+    use MetaTrait; // <!-------------- This one too
 ```
 
 6. Use the following line within your `setup()` function.
 ```php
 public function setup()
 {
-  $this->getMetaFields(); <!-- This one
+  $this->getMetaFields(); // <!-------------- This one
 }
 ```
 
