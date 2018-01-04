@@ -20,7 +20,7 @@
     "homepage": "https://github.com/AbbyJanke/Backpack-Meta",
     "minimum-stability": "dev",
     "require": {
-      "backpack/crud": "^3.3",
+      "backpack/crud": "^3.3"
     },
     "extra": {
       "laravel": {
