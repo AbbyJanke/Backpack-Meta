@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Meta\PanelTraits;
+namespace AbbyJanke\BackpackMeta\PanelTraits;
 
 use Backpack\Meta\app\Http\Models\Meta as Model;
 
@@ -21,7 +21,7 @@ trait Meta
         'name' => $field->key,
       ]);
     }
-    
+
   }
 
 }

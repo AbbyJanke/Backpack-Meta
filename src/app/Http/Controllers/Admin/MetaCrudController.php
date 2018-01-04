@@ -1,9 +1,9 @@
-<?php namespace Backpack\Meta\app\Http\Controllers\Admin;
+<?php namespace AbbyJanke\BackpackMeta\app\Http\Controllers\Admin;
 
 
-use Backpack\Meta\app\Http\Requests\MetaRequest as StoreRequest;
+use AbbyJanke\BackpackMeta\app\Http\Requests\MetaRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use Backpack\Meta\app\Http\Requests\MetaRequest as UpdateRequest;
+use AbbyJanke\BackpackMeta\app\Http\Requests\MetaRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class MetaCrudController extends CrudController

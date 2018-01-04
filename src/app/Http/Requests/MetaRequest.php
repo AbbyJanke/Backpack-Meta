@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Meta\app\Http\Requests;
+namespace AbbyJanke\BackpackMeta\app\Http\Requests;
 
 class MetaRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {

@@ -1,5 +1,5 @@
 {
-    "name": "backpack/meta",
+    "name": "abbyjanke/backpack-meta",
     "description": "Meta Options for Backpack a Laravel Admin Interface",
     "type": "library",
     "license": "MIT",
@@ -25,7 +25,7 @@
     "extra": {
       "laravel": {
           "providers": [
-              "Backpack\\Meta\\MetaServiceProvider"
+              "AbbyJanke\\BackpackMeta\\MetaServiceProvider"
           ]
       }
     }

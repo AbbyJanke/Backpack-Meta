@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Meta;
+namespace AbbyJanke\BackpackMeta;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
