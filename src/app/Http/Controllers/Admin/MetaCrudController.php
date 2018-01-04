@@ -124,24 +124,25 @@ class MetaCrudController extends CrudController
      * Get all available field types from view folder.
      * @return array
      **/
-    private function getFieldTypes()
-    {
-      if(file_exists(resource_path('views/vendor/backpack/crud/fields'))) {
-        $views = scandir(resource_path('views/vendor/backpack/crud/fields'));
-      } else {
-        $views = scandir(base_path('vendor/backpack/crud/src/resources/views/fields'));
-      }
+     private function getFieldTypes()
+     {
+       if(file_exists(resource_path('views/vendor/backpack/crud/fields'))) {
+         $localViews = scandir(resource_path('views/vendor/backpack/crud/fields'));
+       }
 
-      $displayTypes = [];
+       $vendorViews = scandir(base_path('vendor/backpack/crud/src/resources/views/fields'));
 
-      unset($views[0]);
-      unset($views[1]);
+       $views = array_merge($vendorViews, $localViews);
 
-      foreach($views as $view) {
-        $displayTypes[] = strstr($view, '.', true);
-      }
+       $displayTypes = [];
 
-      return $displayTypes;
-    }
+       foreach($views as $view) {
+         $displayTypes[strstr($view, '.', true)] = strstr($view, '.', true);;
+       }
+
+       array_shift($displayTypes);
+
+       return $displayTypes;
+     }
 
 }

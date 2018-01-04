@@ -18,7 +18,7 @@ class Meta extends Model
     protected $table = 'meta_options';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['key','display', 'type', 'model'];
+    protected $fillable = ['key', 'display', 'helper', 'type', 'model'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
@@ -36,7 +36,7 @@ class Meta extends Model
     public function save(array $options = [])
     {
       if(!in_array('display', $this->attributes)) {
-        $this->attributes['display'] = ucwords($this->attributes['key']);
+        $this->attributes['display'] = ucwords(str_replace('_', ' ', $this->attributes['key']));
       }
       parent::save();
     }
