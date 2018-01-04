@@ -16,9 +16,11 @@ class CreateMetaOptionsTable extends Migration
         Schema::create('meta_options', function(Blueprint $table) {
           $table->increments('id');
           $table->string('key', 255)->unique();
-          $table->string('display', 255); // publicly displayed title
+          $table->string('display', 255)->nullable(); // publicly displayed title
           $table->string('helper', 255)->nullable(); // an optional helper text
-          $table->string('type'); // what type of field is it
+          $table->string('type');
+          $table->text('model')->nullable();
+          $table->text('extras')->nullable();
           $table->timestamps();
         });
     }
