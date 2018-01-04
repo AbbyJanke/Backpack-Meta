@@ -22,6 +22,11 @@
     "require": {
       "backpack/crud": "^3.3"
     },
+    "autoload": {
+        "psr-4": {
+            "AbbyJanke\\BackpackMeta\\": "src"
+        }
+    },
     "extra": {
       "laravel": {
           "providers": [
