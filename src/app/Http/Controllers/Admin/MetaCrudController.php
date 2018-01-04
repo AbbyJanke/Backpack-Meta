@@ -15,7 +15,7 @@ class MetaCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('Backpack\Meta\app\Http\Models\Meta');
+        $this->crud->setModel('AbbyJanke\BackpackMeta\app\Http\Models\Meta');
 
         $this->crud->allowAccess('show');
 
