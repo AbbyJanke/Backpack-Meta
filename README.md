@@ -8,7 +8,7 @@ This package is currently in development and is not recommended for a production
 
 3. Publish the config file & run migrations.
 ```bash
-$ php artisan vendor:publish --provider="Backpack\Meta\MetaServiceProvider" #publish config files and migrations
+$ php artisan vendor:publish --provider="AbbyJanke\BackpackMeta\MetaServiceProvider" #publish config files and migrations
 $ php artisan migrate #create the role and permission tables
 ```
 
@@ -25,7 +25,7 @@ use App\PageTemplates;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PageManager\app\Http\Requests\PageRequest as StoreRequest;
 use Backpack\PageManager\app\Http\Requests\PageRequest as UpdateRequest;
-use Backpack\Meta\PanelTraits\Meta as MetaTrait; // <!-------------- This One
+use AbbyJanke\BackpackMeta\PanelTraits\Meta as MetaTrait; // <!-------------- This One
 
 class PageCrudController extends CrudController
 {
