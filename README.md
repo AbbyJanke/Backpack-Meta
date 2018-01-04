@@ -1,4 +1,4 @@
-# Backpack\Meta (AbbyJanke/Backpack-Meta)
+# AbbyJanke/Backpack-Meta
 
 A package designed to help create Meta options for the extending core functions of Backpack such as _users_ and other packages.
 

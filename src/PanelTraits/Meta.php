@@ -2,7 +2,7 @@
 
 namespace AbbyJanke\BackpackMeta\PanelTraits;
 
-use Backpack\Meta\app\Http\Models\Meta as Model;
+use AbbyJanke\BackpackMeta\app\Http\Models\Meta as Model;
 
 trait Meta
 {
