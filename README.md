@@ -59,7 +59,7 @@ php artisan migrate
 
 ## Not Using Backpack\CRUD?
 
-*Documentation for this is coming shortly*
+[Use Without a CRUDController](https://github.com/AbbyJanke/BackpackMeta/wiki/Using-Meta-Options-Without-CRUD)
 
 ## Security
 

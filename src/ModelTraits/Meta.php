@@ -3,9 +3,7 @@
 namespace AbbyJanke\BackpackMeta\ModelTraits;
 
 use DB;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
-use Request;
 use AbbyJanke\BackpackMeta\app\Http\Models\Meta as Options;
 use AbbyJanke\BackpackMeta\app\Http\Models\Values;
 
@@ -29,19 +27,6 @@ trait Meta
     public function singleMetaOption($key)
     {
         return Options::where('key', $key)->first();
-    }
-
-    /**
-     * Get the value of a single META option.
-     * @return string
-     **/
-    public function meta($key)
-    {
-        $option = $this->singleMetaOption($key);
-        $meta = Values::where('meta_id', $option->id)->first();
-        if($meta) {
-          return $meta->value;
-        }
     }
 
     /**
@@ -81,11 +66,11 @@ trait Meta
             }
         }
 
-        $newAttributes = Request::except(['_token', 'save_action', 'new_option']);
+        $newAttributes = \Request::except(['_token', 'save_action', 'new_option', '_method']);
         foreach ($newAttributes as $key => $attribute) {
             if (!\Schema::hasColumn($this->getTable(), $key)) {
                 $optionInfo = $this->singleMetaOption($key);
-                if($this->meta($key)) {
+                if($this->{$key}) {
                   $currentValue = Values::where('meta_id', $optionInfo->id)->first();
                   $currentValue->value = $attribute;
                   $currentValue->save();
@@ -108,5 +93,29 @@ trait Meta
         }
 
         return $saved;
+    }
+
+    /**
+     * Dynamically retrieve attributes on the model.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        $metaOptions = $this->getMetaOptions();
+        $arrayedOptionKeys = [];
+
+        foreach($metaOptions as $option) {
+          $arrayedOptionKeys[$option->id] = $option->key;
+        }
+
+        if(in_array($key, $arrayedOptionKeys)) {
+          $attribute = Values::where('meta_id', array_search($key, $arrayedOptionKeys))->first()->value;
+        } else {
+          $attribute = $this->getAttribute($key);
+        }
+
+        return $attribute;
     }
 }

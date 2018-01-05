@@ -24,7 +24,6 @@ trait Meta
         'label' => $field->display
       ]);
     }
-
   }
 
 }
