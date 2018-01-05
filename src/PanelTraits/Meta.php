@@ -19,6 +19,9 @@ trait Meta
     foreach($fields as $field) {
       $this->crud->addField([
         'name' => $field->key,
+        'type' => $field->type,
+        'helper' => $field->helper,
+        'label' => $field->display
       ]);
     }
 
