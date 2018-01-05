@@ -3,9 +3,12 @@
 namespace AbbyJanke\BackpackMeta\app\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class Meta extends Model
 {
+
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------

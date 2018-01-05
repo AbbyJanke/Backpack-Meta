@@ -127,7 +127,7 @@ class MetaCrudController extends CrudController
      private function getFieldTypes()
      {
        $localViews = [];
-       
+
        if(file_exists(resource_path('views/vendor/backpack/crud/fields'))) {
          $localViews = scandir(resource_path('views/vendor/backpack/crud/fields'));
        }
