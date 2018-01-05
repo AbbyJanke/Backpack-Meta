@@ -13,7 +13,7 @@ class CreateMetaOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('meta_options', function(Blueprint $table) {
+        Schema::create('meta_options', function (Blueprint $table) {
           $table->increments('id');
           $table->string('key', 255)->unique();
           $table->string('display', 255)->nullable(); // publicly displayed title

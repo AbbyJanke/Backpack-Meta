@@ -1,6 +1,5 @@
 <?php namespace AbbyJanke\BackpackMeta\app\Http\Controllers\Admin;
 
-
 use AbbyJanke\BackpackMeta\app\Http\Requests\MetaRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use AbbyJanke\BackpackMeta\app\Http\Requests\MetaRequest as UpdateRequest;
@@ -82,7 +81,6 @@ class MetaCrudController extends CrudController
             'hint' => 'Which model to attach this Meta option to.',
             'allows_null' => false,
         ]);
-
     }
 
     public function store(StoreRequest $request)
@@ -109,42 +107,42 @@ class MetaCrudController extends CrudController
      **/
     private function getMetableModels()
     {
-      $models = config('backpack.meta.models');
-      sort($models);
+        $models = config('backpack.meta.models');
+        sort($models);
 
-      $displayModels = [];
-      foreach($models as $model) {
-        $displayModels[$model] = $model;
-      }
+        $displayModels = [];
+        foreach ($models as $model) {
+            $displayModels[$model] = $model;
+        }
 
-      return $displayModels;
+        return $displayModels;
     }
 
     /**
      * Get all available field types from view folder.
      * @return array
      **/
-     private function getFieldTypes()
-     {
-       $localViews = [];
+    private function getFieldTypes()
+    {
+        $localViews = [];
 
-       if(file_exists(resource_path('views/vendor/backpack/crud/fields'))) {
-         $localViews = scandir(resource_path('views/vendor/backpack/crud/fields'));
-       }
+        if (file_exists(resource_path('views/vendor/backpack/crud/fields'))) {
+            $localViews = scandir(resource_path('views/vendor/backpack/crud/fields'));
+        }
 
-       $vendorViews = scandir(base_path('vendor/backpack/crud/src/resources/views/fields'));
+        $vendorViews = scandir(base_path('vendor/backpack/crud/src/resources/views/fields'));
 
-       $views = array_merge($vendorViews, $localViews);
+        $views = array_merge($vendorViews, $localViews);
 
-       $displayTypes = [];
+        $displayTypes = [];
 
-       foreach($views as $view) {
-         $displayTypes[strstr($view, '.', true)] = strstr($view, '.', true);;
-       }
+        foreach ($views as $view) {
+            $displayTypes[strstr($view, '.', true)] = strstr($view, '.', true);
+            ;
+        }
 
-       array_shift($displayTypes);
+        array_shift($displayTypes);
 
-       return $displayTypes;
-     }
-
+        return $displayTypes;
+    }
 }

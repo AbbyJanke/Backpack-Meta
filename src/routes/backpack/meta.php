@@ -2,11 +2,11 @@
 
 /*
 |--------------------------------------------------------------------------
-| Backpack\Blog Routes
+| Backpack\Meta Routes
 |--------------------------------------------------------------------------
 |
 | This file is where you may define all of the routes that are
-| handled by the Backpack\Blog package.
+| handled by the Backpack\Meta package.
 |
 */
 

@@ -7,7 +7,6 @@ use Backpack\CRUD\CrudTrait;
 
 class Meta extends Model
 {
-
     use CrudTrait;
 
     /*
@@ -29,9 +28,9 @@ class Meta extends Model
      */
     public function save(array $options = [])
     {
-      if(!in_array('display', $this->attributes)) {
-        $this->attributes['display'] = ucwords(str_replace('_', ' ', $this->attributes['key']));
-      }
-      parent::save();
+        if (!in_array('display', $this->attributes)) {
+            $this->attributes['display'] = ucwords(str_replace('_', ' ', $this->attributes['key']));
+        }
+        parent::save();
     }
 }

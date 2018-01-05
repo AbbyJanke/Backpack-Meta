@@ -13,7 +13,7 @@ class CreateMetaValuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('meta_values', function(Blueprint $table) {
+        Schema::create('meta_values', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('record_id')->unsigned();
           $table->integer('meta_id')->unsigned();

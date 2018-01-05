@@ -11,9 +11,17 @@ trait Meta
 {
 
   /**
-   * Get all META options for the model.
-   * @return void
+   * Connect to the Meta values
    **/
+    public function meta()
+    {
+        return $this->hasMany('AbbyJanke\BackpackMeta\app\Http\Models\Values', 'record_id', 'id');
+    }
+
+    /**
+     * Get all META options for the model.
+     * @return void
+     **/
     public function getMetaOptions()
     {
         $className = get_class($this->newInstance());
@@ -70,12 +78,15 @@ trait Meta
         foreach ($newAttributes as $key => $attribute) {
             if (!\Schema::hasColumn($this->getTable(), $key)) {
                 $optionInfo = $this->singleMetaOption($key);
-                if($this->{$key}) {
-                  $currentValue = Values::where('meta_id', $optionInfo->id)->first();
-                  $currentValue->value = $attribute;
-                  $currentValue->save();
+                if ($currentValue = $this->meta->where('meta_id', $optionInfo->id)->first()) {
+                    if (empty($attribute)) {
+                        $currentValue->delete();
+                    } else {
+                        $currentValue->value = $attribute;
+                        $currentValue->save();
+                    }
                 } else {
-                  $newValue = Values::create([
+                    $newValue = Values::create([
                     'record_id' => $this->id,
                     'meta_id' => $optionInfo->id,
                     'value' => $attribute,
@@ -106,14 +117,17 @@ trait Meta
         $metaOptions = $this->getMetaOptions();
         $arrayedOptionKeys = [];
 
-        foreach($metaOptions as $option) {
-          $arrayedOptionKeys[$option->id] = $option->key;
+        foreach ($metaOptions as $option) {
+            $arrayedOptionKeys[$option->id] = $option->key;
         }
 
-        if(in_array($key, $arrayedOptionKeys)) {
-          $attribute = Values::where('meta_id', array_search($key, $arrayedOptionKeys))->first()->value;
+        if (in_array($key, $arrayedOptionKeys)) {
+            $attribute = $this->meta->where('meta_id', array_search($key, $arrayedOptionKeys))->first();
+            if ($attribute) {
+                $attribute = $attribute->value;
+            }
         } else {
-          $attribute = $this->getAttribute($key);
+            $attribute = $this->getAttribute($key);
         }
 
         return $attribute;
