@@ -57,6 +57,13 @@ php artisan migrate
 <li><a href="{{ url(config('backpack.base.route_prefix').'/meta') }}"><i class="fa fa-plus-square"></i> <span>Meta Options</span></a></li>
 ```
 
+## Retrieving Values
+
+To retrieve a Meta value from a specific Record within your database you can call it the same was as any column within the model's main database such as:
+```php
+$record->metaKeyName;
+```
+
 ## Not Using Backpack\CRUD?
 
 [Use Without a CRUDController](https://github.com/AbbyJanke/BackpackMeta/wiki/Using-Meta-Options-Without-CRUD)
